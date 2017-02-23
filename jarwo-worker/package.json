@@ -1,0 +1,38 @@
+{
+  "name": "jarwo-inbound",
+  "version": "0.0.1",
+  "description": "Jarwo Inbound",
+  "main": "handler.js",
+  "scripts": {
+    "test": "mocha --compilers js:babel-register --timeout 10000"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.16.0",
+    "axios": "^0.15.3",
+    "bluebird": "^3.4.6",
+    "dotenv": "^2.0.0",
+    "ramda": "^0.23.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.8",
+    "babel-plugin-transform-flow-strip-types": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
+    "eslint": "^3.12.2",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-flowtype": "^2.29.2",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-mocha": "^4.8.0",
+    "eslint-plugin-react": "^6.8.0",
+    "install": "^0.8.4",
+    "mocha": "^3.2.0",
+    "serverless-webpack": "^1.0.0-rc.2",
+    "webpack": "^1.13.3",
+    "webpack-dotenv-plugin": "^1.4.0",
+    "webpack-node-externals": "^1.5.4"
+  },
+  "author": "Donny Stark",
+  "license": "ISC"
+}

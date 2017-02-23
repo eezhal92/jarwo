@@ -1,0 +1,49 @@
+
+service: jarwo-worker
+
+provider:
+  name: aws
+  runtime: nodejs4.3
+  stage: dev
+  memorySize: 128
+  region: ap-southeast-1
+  iamRoleStatements:
+    - Effect: "Allow"
+      Resource: "*"
+      Action:
+        - "sns:*"
+
+functions:
+
+  # Inbound
+  messengerInbound:
+    handler: messenger.handleInbound
+    events:
+     - http:
+        path: v1/messenger/inbound
+        method: post
+  handleVerification:
+    handler: messenger.handleVerification
+    events:
+     - http:
+        path: v1/messenger/inbound
+        method: get
+
+  # Responder
+  responder:
+    handler: responder.respondMessage
+    events:
+     - sns: messenger-inbound
+
+  # Outbound
+  messengerOutbound:
+    handler: messenger.handleOutbound
+    events:
+     - sns: messenger-outbound
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack: ./webpack.config.js
+  webpackIncludeModules: true
